@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvtlqlnjtoaxu"]
+
+[ext_resource type="Script" uid="uid://d1f5beifpgqgt" path="res://scripts/menu.gd" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://58ihpfq2isu1" path="res://assets/textures/walls/wood.png" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://bkfr16aaeobum" path="res://assets/textures/walls/rock.png" id="2_con2f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mhnvy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4ytvr"]
+sky_material = SubResource("ProceduralSkyMaterial_mhnvy")
+
+[sub_resource type="Environment" id="Environment_g3eks"]
+background_mode = 2
+sky = SubResource("Sky_4ytvr")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.5296
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v86rl"]
+albedo_texture = ExtResource("1_vjb58")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_13sgg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6lef"]
+albedo_texture = ExtResource("2_con2f")
+uv1_scale = Vector3(3, 30, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vjb58"]
+
+[node name="Menu" type="Node3D"]
+script = ExtResource("1_con2f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g3eks")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 8
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(144, 81)
+render_target_update_mode = 4
+
+[node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(5.3377852, 0, 0, 0, 0.15910572, 0, 0, 0, 5.8529615, -2.3679807, 0, -2.2261164)
+material_override = SubResource("StandardMaterial3D_v86rl")
+mesh = SubResource("BoxMesh_13sgg")
+skeleton = NodePath("../../..")
+
+[node name="Roof" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(5.3377852, 0, 0, 0, 0.15910572, 0, 0, 0, 5.8529615, -2.3679807, 2.6204453, -2.2261164)
+material_override = SubResource("StandardMaterial3D_v86rl")
+mesh = SubResource("BoxMesh_13sgg")
+skeleton = NodePath("../../..")
+
+[node name="Wall" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(5.3377852, 0, 0, 0, 64.84781, 0, 0, 0, 0.13661817, 0, 1.6657798, -2.8381586)
+material_override = SubResource("StandardMaterial3D_i6lef")
+mesh = SubResource("BoxMesh_13sgg")
+skeleton = NodePath("../../..")
+
+[node name="Wall2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-2.772898e-07, 0, -0.13661815, 0, 65.2292, 0, 6.3436513, 0, -5.9717697e-09, -2.5866103, 1.6657798, -0.21463919)
+material_override = SubResource("StandardMaterial3D_i6lef")
+mesh = SubResource("BoxMesh_13sgg")
+skeleton = NodePath("../../..")
+
+[node name="Enter" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.46413547, 0, 0.0940631, 0, 0.23264115, 0, -0.5169969, 0, 0.08444542, -0.7118014, 0.9931207, -0.6259758)
+mesh = SubResource("BoxMesh_vjb58")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2004211, 2.3639119, -1.1543517)
+light_color = Color(1, 1, 0.90588236, 1)
+light_energy = 16.0
+spot_angle = 85.75
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.6472023, 0, 0.76231825, 0, 1, 0, -0.76231825, 0, 0.6472023, -0.15461242, 0.8333706, 0.649664)
+fov = 67.00078
+
+[node name="Enter" type="Button" parent="."]
+offset_left = 676.0
+offset_top = 208.0
+offset_right = 976.0
+offset_bottom = 304.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 64
+text = "ENTER"
+flat = true
+
+[connection signal="pressed" from="Enter" to="." method="_on_enter_pressed"]
