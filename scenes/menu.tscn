@@ -1,8 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvtlqlnjtoaxu"]
+[gd_scene load_steps=36 format=3 uid="uid://cvtlqlnjtoaxu"]
 
 [ext_resource type="Script" uid="uid://d1f5beifpgqgt" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://58ihpfq2isu1" path="res://assets/textures/walls/wood.png" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://bkfr16aaeobum" path="res://assets/textures/walls/rock.png" id="2_con2f"]
+[ext_resource type="Script" uid="uid://cddyqxdfokvly" path="res://scripts/camera_3d_menu.gd" id="4_4ytvr"]
+[ext_resource type="FontFile" uid="uid://doqbm6byn0c81" path="res://assets/fonts/Pixelcastle-Regular.otf" id="4_mhnvy"]
+[ext_resource type="Material" uid="uid://301nchcax7ys" path="res://assets/particles/spark.tres" id="5_v86rl"]
+[ext_resource type="Texture2D" uid="uid://bh3e31lch376f" path="res://assets/textures/misc/camus.png" id="6_g3eks"]
+[ext_resource type="Texture2D" uid="uid://cd00k2lvjy4vk" path="res://assets/textures/misc/red_flash.png" id="8_13sgg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mhnvy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,7 +35,139 @@ uv1_scale = Vector3(3, 2, 1)
 albedo_texture = ExtResource("2_con2f")
 uv1_scale = Vector3(3, 30, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vjb58"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13sgg"]
+albedo_color = Color(1, 0.49411765, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_i6lef"]
+radius = 0.01
+height = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70i5f"]
+albedo_color = Color(1, 0.15686275, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mj5lg"]
+radius = 0.03
+height = 0.15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6lef"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 726, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70i5f"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 1448, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj5lg"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 2170, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufwb2"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 2892, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdou"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 3614, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i42df"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 4336, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jp70"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 5058, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgkd"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 5780, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6gyw"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 6502, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dmrc"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 7224, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81l6r"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 7946, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsfmq"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 8668, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi1it"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 9390, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy8yy"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 10112, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wigr"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 10834, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnf0i"]
+atlas = ExtResource("8_13sgg")
+region = Rect2(0, 11556, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffqrc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6lef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70i5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj5lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufwb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i42df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jp70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6gyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dmrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81l6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsfmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi1it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy8yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wigr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnf0i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}]
 
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_con2f")
@@ -46,15 +183,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 8
+stretch_shrink = 4
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(144, 81)
+size = Vector2i(288, 162)
 render_target_update_mode = 4
 
 [node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(5.3377852, 0, 0, 0, 0.15910572, 0, 0, 0, 5.8529615, -2.3679807, 0, -2.2261164)
+transform = Transform3D(6.5218387, 0, 0, 0, 0.15910572, 0, 0, 0, 5.8529615, -2.3679807, 0, -2.2261164)
 material_override = SubResource("StandardMaterial3D_v86rl")
 mesh = SubResource("BoxMesh_13sgg")
 skeleton = NodePath("../../..")
@@ -77,28 +214,160 @@ material_override = SubResource("StandardMaterial3D_i6lef")
 mesh = SubResource("BoxMesh_13sgg")
 skeleton = NodePath("../../..")
 
-[node name="Enter" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.46413547, 0, 0.0940631, 0, 0.23264115, 0, -0.5169969, 0, 0.08444542, -0.7118014, 0.9931207, -0.6259758)
-mesh = SubResource("BoxMesh_vjb58")
-
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2004211, 2.3639119, -1.1543517)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2004211, 2.3634074, -1.1543517)
 light_color = Color(1, 1, 0.90588236, 1)
 light_energy = 16.0
-spot_angle = 85.75
+spot_angle = 180.0
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.6472023, 0, 0.76231825, 0, 1, 0, -0.76231825, 0, 0.6472023, -0.15461242, 0.8333706, 0.649664)
+transform = Transform3D(0.6472023, 0, 0.76231825, 0, 1, 0, -0.76231825, 0, 0.6472023, 1.169931, 0.8333706, 0.081008434)
 fov = 67.00078
+script = ExtResource("4_4ytvr")
 
-[node name="Enter" type="Button" parent="."]
-offset_left = 676.0
-offset_top = 208.0
-offset_right = 976.0
-offset_bottom = 304.0
+[node name="GPUParticles3D" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2672806, 0.03353846, -2.4997125)
+material_override = SubResource("StandardMaterial3D_13sgg")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_i6lef")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7093116, 0.03353846, -2.503467)
+material_override = SubResource("StandardMaterial3D_70i5f")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_mj5lg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D6"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D7" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.278749, 0.03353846, -0.36691648)
+material_override = SubResource("StandardMaterial3D_70i5f")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_mj5lg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D7"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9761419, 0.03353846, -2.4997125)
+material_override = SubResource("StandardMaterial3D_13sgg")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_i6lef")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D4"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015288115, 0.03353846, -2.4997125)
+material_override = SubResource("StandardMaterial3D_13sgg")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_i6lef")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D5"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2672806, 0.03353846, -0.775229)
+material_override = SubResource("StandardMaterial3D_13sgg")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_i6lef")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D2"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2672806, 0.03353846, 0.076847374)
+material_override = SubResource("StandardMaterial3D_13sgg")
+amount = 50
+process_material = ExtResource("5_v86rl")
+draw_pass_1 = SubResource("SphereMesh_i6lef")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D3"]
+light_color = Color(1, 0.50980395, 0, 1)
+light_energy = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(0.557832, 0, 0.82995385, 0, 1, 0, -0.82995385, 0, 0.557832, -0.54594433, 0.3989528, -0.6379748)
+texture = ExtResource("6_g3eks")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = 807.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Enter" type="Button" parent="Node2D"]
+texture_filter = 1
+offset_left = 828.0
+offset_top = 161.0
+offset_right = 1128.0
+offset_bottom = 257.0
 focus_mode = 0
+theme_override_colors/font_color = Color(0.85882354, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_mhnvy")
 theme_override_font_sizes/font_size = 64
-text = "ENTER"
+text = "Enter"
 flat = true
 
-[connection signal="pressed" from="Enter" to="." method="_on_enter_pressed"]
+[node name="Quit" type="Button" parent="Node2D"]
+texture_filter = 1
+offset_left = 828.0
+offset_top = 425.0
+offset_right = 1128.0
+offset_bottom = 521.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.85882354, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 64
+text = "Exit"
+flat = true
+
+[node name="RedFlash" type="AnimatedSprite2D" parent="Node2D"]
+visible = false
+scale = Vector2(0.89999986, 0.9)
+sprite_frames = SubResource("SpriteFrames_ffqrc")
+autoplay = "default"
+frame_progress = 0.793831
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="pressed" from="Node2D/Enter" to="." method="_on_enter_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

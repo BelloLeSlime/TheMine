@@ -108,7 +108,7 @@ mesh = SubResource("BoxMesh_4wyf3")
 shape = SubResource("ConvexPolygonShape3D_k0juu")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.010646678, 0, 4.466524, 0, 6.952032, 0, -0.9838406, 0, -0.04833418, -0.45138, 3.4070163, 47.439774)
+transform = Transform3D(-0.010638928, 0, 4.766951, 0, 6.952032, 0, -0.98312443, 0, -0.05158523, -0.45138, 3.4070163, 47.439774)
 material_override = SubResource("StandardMaterial3D_4wyf3")
 mesh = SubResource("BoxMesh_4wyf3")
 
@@ -168,7 +168,7 @@ mesh = SubResource("BoxMesh_4wyf3")
 shape = SubResource("ConvexPolygonShape3D_k0juu")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.93889034, 0, -6.0411997, 0, 6.9520335, 0, 0.3292732, 0, -17.225891, 4.3485045, 3.4070163, 55.81739)
+transform = Transform3D(-0.9643996, 0, -5.5731792, 0, 6.9520335, 0, 0.3382194, 0, -15.8913765, 4.3485045, 3.4070163, 55.207558)
 material_override = SubResource("StandardMaterial3D_4mrxx")
 mesh = SubResource("BoxMesh_4wyf3")
 
@@ -205,7 +205,7 @@ light_volumetric_fog_energy = 16.0
 light_size = 1.0
 light_specular = 1.208
 spot_range = 91.179
-spot_angle = 70.48
+spot_angle = 140.1
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.919626, 6.6981525, 68.068634)
