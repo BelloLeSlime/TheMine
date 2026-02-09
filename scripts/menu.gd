@@ -26,11 +26,17 @@ func _process(_delta: float) -> void:
 	
 	if quit_button.is_hovered():
 		red_flash.visible = true
+		if not $Flash.playing:
+			$Flash.play()
 	else:
 		red_flash.visible = false
+		if $Flash.playing:
+			$Flash.stop()
 
 func _on_timer_timeout() -> void:
 	$ColorRect.visible = true
+	$Crash.play()
+	$Fall.stop()
 	$Timer2.start()
 
 func _on_timer_2_timeout() -> void:

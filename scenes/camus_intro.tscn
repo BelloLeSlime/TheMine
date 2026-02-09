@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsuo038s7me4g"]
+[gd_scene load_steps=4 format=3 uid="uid://bsuo038s7me4g"]
 
 [ext_resource type="Script" uid="uid://b7geoihtfw8un" path="res://scripts/camus_intro.gd" id="1_sxmfw"]
+[ext_resource type="AudioStream" uid="uid://mga4cae00dqf" path="res://assets/sounds/bip.mp3" id="2_31jkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31jkj"]
 size = Vector2(15, 15)
@@ -19,5 +20,8 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.5, 7.5)
 shape = SubResource("RectangleShape2D_31jkj")
+
+[node name="Bip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_31jkj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

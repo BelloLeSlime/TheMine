@@ -1,13 +1,16 @@
-[gd_scene load_steps=36 format=3 uid="uid://cvtlqlnjtoaxu"]
+[gd_scene load_steps=39 format=3 uid="uid://cvtlqlnjtoaxu"]
 
 [ext_resource type="Script" uid="uid://d1f5beifpgqgt" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://58ihpfq2isu1" path="res://assets/textures/walls/wood.png" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://bkfr16aaeobum" path="res://assets/textures/walls/rock.png" id="2_con2f"]
-[ext_resource type="Script" uid="uid://cddyqxdfokvly" path="res://scripts/camera_3d_menu.gd" id="4_4ytvr"]
+[ext_resource type="Script" path="res://scripts/camera_3d_menu.gd" id="4_4ytvr"]
 [ext_resource type="FontFile" uid="uid://doqbm6byn0c81" path="res://assets/fonts/Pixelcastle-Regular.otf" id="4_mhnvy"]
 [ext_resource type="Material" uid="uid://301nchcax7ys" path="res://assets/particles/spark.tres" id="5_v86rl"]
 [ext_resource type="Texture2D" uid="uid://bh3e31lch376f" path="res://assets/textures/misc/camus.png" id="6_g3eks"]
 [ext_resource type="Texture2D" uid="uid://cd00k2lvjy4vk" path="res://assets/textures/misc/red_flash.png" id="8_13sgg"]
+[ext_resource type="AudioStream" uid="uid://d1mx4lcg7eeui" path="res://assets/sounds/how_was_the_fall.mp3" id="9_70i5f"]
+[ext_resource type="AudioStream" uid="uid://bu46yr3a88hlv" path="res://assets/sounds/crash.mp3" id="10_mj5lg"]
+[ext_resource type="AudioStream" uid="uid://cl6xuk6l33q86" path="res://assets/sounds/glitch.wav" id="11_mj5lg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mhnvy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -367,6 +370,19 @@ color = Color(0, 0, 0, 1)
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_70i5f")
+volume_db = -5.0
+autoplay = true
+
+[node name="Crash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_mj5lg")
+volume_db = -5.0
+
+[node name="Flash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_mj5lg")
+volume_db = 10.0
 
 [connection signal="pressed" from="Node2D/Enter" to="." method="_on_enter_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
