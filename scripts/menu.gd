@@ -8,6 +8,9 @@ extends Node3D
 @onready var node_2d := $Node2D
 @onready var camera := $SubViewportContainer/SubViewport/Camera3D
 
+func _ready():
+	$SubViewportContainer/SubViewport/Particles.visible = true
+
 func _on_enter_pressed() -> void:
 	for i in range(100):
 		node_2d.position.x += 5
@@ -41,3 +44,6 @@ func _on_timer_timeout() -> void:
 
 func _on_timer_2_timeout() -> void:
 	main.start_intro()
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

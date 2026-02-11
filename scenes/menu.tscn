@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://cvtlqlnjtoaxu"]
+[gd_scene load_steps=43 format=3 uid="uid://cvtlqlnjtoaxu"]
 
 [ext_resource type="Script" uid="uid://d1f5beifpgqgt" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://58ihpfq2isu1" path="res://assets/textures/walls/wood.png" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://bkfr16aaeobum" path="res://assets/textures/walls/rock.png" id="2_con2f"]
-[ext_resource type="Script" path="res://scripts/camera_3d_menu.gd" id="4_4ytvr"]
+[ext_resource type="Script" uid="uid://cddyqxdfokvly" path="res://scripts/camera_3d_menu.gd" id="4_4ytvr"]
 [ext_resource type="FontFile" uid="uid://doqbm6byn0c81" path="res://assets/fonts/Pixelcastle-Regular.otf" id="4_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://c5i1bnnlliic3" path="res://assets/textures/walls/fence.png" id="4_ufwb2"]
 [ext_resource type="Material" uid="uid://301nchcax7ys" path="res://assets/particles/spark.tres" id="5_v86rl"]
 [ext_resource type="Texture2D" uid="uid://bh3e31lch376f" path="res://assets/textures/misc/camus.png" id="6_g3eks"]
 [ext_resource type="Texture2D" uid="uid://cd00k2lvjy4vk" path="res://assets/textures/misc/red_flash.png" id="8_13sgg"]
@@ -37,6 +38,16 @@ uv1_scale = Vector3(3, 2, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6lef"]
 albedo_texture = ExtResource("2_con2f")
 uv1_scale = Vector3(3, 30, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cdou"]
+transparency = 1
+albedo_texture = ExtResource("4_ufwb2")
+uv1_scale = Vector3(3, 3, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i42df"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ufwb2"]
+flip_faces = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13sgg"]
 albedo_color = Color(1, 0.49411765, 0, 1)
@@ -200,7 +211,7 @@ mesh = SubResource("BoxMesh_13sgg")
 skeleton = NodePath("../../..")
 
 [node name="Roof" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(5.3377852, 0, 0, 0, 0.15910572, 0, 0, 0, 5.8529615, -2.3679807, 2.6204453, -2.2261164)
+transform = Transform3D(6.504955, 0, 0, 0, 0.15910572, 0, 0, 0, 6.054126, -2.3679807, 2.491953, -2.2261164)
 material_override = SubResource("StandardMaterial3D_v86rl")
 mesh = SubResource("BoxMesh_13sgg")
 skeleton = NodePath("../../..")
@@ -217,6 +228,26 @@ material_override = SubResource("StandardMaterial3D_i6lef")
 mesh = SubResource("BoxMesh_13sgg")
 skeleton = NodePath("../../..")
 
+[node name="Fence" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1.7653183, 0, 0, 0, 2.980232e-08, -1.2253935, 0, 0.99999994, 3.6519573e-08, -0.8814639, 1.231417, 0.6999935)
+material_override = SubResource("StandardMaterial3D_6cdou")
+mesh = SubResource("PlaneMesh_i42df")
+
+[node name="Fence2" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-7.7164515e-08, 0.99999994, 3.6519573e-08, 0, 2.980232e-08, -1.2253935, -1.7653183, -4.3711385e-08, -1.5963213e-15, 0.87889683, 1.231417, -1.074467)
+material_override = SubResource("StandardMaterial3D_6cdou")
+mesh = SubResource("PlaneMesh_i42df")
+
+[node name="Fence3" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1.7653183, 0, 0, 0, 2.980232e-08, -1.2253935, 0, 0.99999994, 3.6519573e-08, -0.8814639, 1.231417, 0.6999935)
+material_override = SubResource("StandardMaterial3D_6cdou")
+mesh = SubResource("PlaneMesh_ufwb2")
+
+[node name="Fence4" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-7.7164515e-08, 0.99999994, 3.6519573e-08, 0, 2.980232e-08, -1.2253935, -1.7653183, -4.3711385e-08, -1.5963213e-15, 0.87889683, 1.231417, -1.074467)
+material_override = SubResource("StandardMaterial3D_6cdou")
+mesh = SubResource("PlaneMesh_ufwb2")
+
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.2004211, 2.3634074, -1.1543517)
 light_color = Color(1, 1, 0.90588236, 1)
@@ -228,80 +259,83 @@ transform = Transform3D(0.6472023, 0, 0.76231825, 0, 1, 0, -0.76231825, 0, 0.647
 fov = 67.00078
 script = ExtResource("4_4ytvr")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="Particles" type="Node3D" parent="SubViewportContainer/SubViewport"]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2672806, 0.03353846, -2.4997125)
 material_override = SubResource("StandardMaterial3D_13sgg")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_i6lef")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D6" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7093116, 0.03353846, -2.503467)
 material_override = SubResource("StandardMaterial3D_70i5f")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_mj5lg")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D6"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D6"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D7" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="GPUParticles3D7" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.278749, 0.03353846, -0.36691648)
 material_override = SubResource("StandardMaterial3D_70i5f")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_mj5lg")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D7"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D7"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D4" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9761419, 0.03353846, -2.4997125)
 material_override = SubResource("StandardMaterial3D_13sgg")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_i6lef")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D4"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D4"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D5" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015288115, 0.03353846, -2.4997125)
 material_override = SubResource("StandardMaterial3D_13sgg")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_i6lef")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D5"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D5"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2672806, 0.03353846, -0.775229)
 material_override = SubResource("StandardMaterial3D_13sgg")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_i6lef")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D2"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D2"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="SubViewportContainer/SubViewport/Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2672806, 0.03353846, 0.076847374)
 material_override = SubResource("StandardMaterial3D_13sgg")
 amount = 50
 process_material = ExtResource("5_v86rl")
 draw_pass_1 = SubResource("SphereMesh_i6lef")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GPUParticles3D3"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Particles/GPUParticles3D3"]
 light_color = Color(1, 0.50980395, 0, 1)
 light_energy = 2.0
 
@@ -385,5 +419,6 @@ stream = ExtResource("11_mj5lg")
 volume_db = 10.0
 
 [connection signal="pressed" from="Node2D/Enter" to="." method="_on_enter_pressed"]
+[connection signal="pressed" from="Node2D/Quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

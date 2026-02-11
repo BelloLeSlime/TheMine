@@ -1,7 +1,7 @@
 extends Camera3D
 
 var origin_position = position
-var intensity = 0.1
+var intensity = 0.05
 
 func _process(_delta: float) -> void:
 	var position_x = origin_position.x + randf_range(-intensity, intensity)
