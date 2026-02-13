@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjfu5isslxfix"
-path="res://.godot/imported/Panneau END.fbx-a18e43046b32f4619d77c5adc963042d.scn"
+uid="uid://bxwcrdl7xuqsu"
+path="res://.godot/imported/exitSign.gltf-8419443585b04255363fc4e2715c5740.scn"
 
 [deps]
 
-source_file="res://assets/models/Panneau END.fbx"
-dest_files=["res://.godot/imported/Panneau END.fbx-a18e43046b32f4619d77c5adc963042d.scn"]
+source_file="res://assets/models/exitSign.gltf"
+dest_files=["res://.godot/imported/exitSign.gltf-8419443585b04255363fc4e2715c5740.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

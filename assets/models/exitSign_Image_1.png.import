@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jisqo6lnd6yc"
-path.s3tc="res://.godot/imported/Panneau END_1.png-9b7dd8bc5a7832e5d8a834a9bcdbe81c.s3tc.ctex"
+uid="uid://b64jke6abgaju"
+path.s3tc="res://.godot/imported/exitSign_Image_1.png-b8633448bb4dffb05e0e17727d1636ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1b53580027e368570419d543fc4d01c6"
+}
 
 [deps]
 
-source_file="res://assets/models/Panneau END_1.png"
-dest_files=["res://.godot/imported/Panneau END_1.png-9b7dd8bc5a7832e5d8a834a9bcdbe81c.s3tc.ctex"]
+source_file="res://assets/models/exitSign_Image_1.png"
+dest_files=["res://.godot/imported/exitSign_Image_1.png-b8633448bb4dffb05e0e17727d1636ad.s3tc.ctex"]
 
 [params]
 

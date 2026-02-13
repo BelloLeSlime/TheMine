@@ -18,7 +18,6 @@ var lighted_on := false
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-
 func _process(delta: float) -> void:
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("d", "q")

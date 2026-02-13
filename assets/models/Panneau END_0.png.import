@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkl6mq5emks1i"
+uid="uid://gu70vhjw4gcu"
 path.s3tc="res://.godot/imported/Panneau END_0.png-427c6a8487dba73eb38def669a26f29e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "8f9fded06a9ac5892dfd85117f5ed22d"
 }
 
 [deps]

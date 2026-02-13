@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxv5m1huqln7d"]
+
+[ext_resource type="PackedScene" uid="uid://cl1kp4hs4rw6s" path="res://assets/models/lamp.gltf" id="1_g2iep"]
+
+[node name="Lamp" instance=ExtResource("1_g2iep")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Lamp" parent="." index="0"]
+transform = Transform3D(0.61973524, 0, 0, 0, 0, -0.61973524, 0, 0.03592442, 0, 0, 0, -0.48299062)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, -8.742278e-08, -8.742278e-08, -8.742278e-08, -4.371138e-08, -1, 8.742278e-08, 1, -4.371139e-08, 0, 0, 0)
+light_energy = 16.0
+spot_range = 36.951
+spot_angle = 99.34
